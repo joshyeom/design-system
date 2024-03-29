@@ -19,6 +19,9 @@ const meta :Meta<typeof InputBox>= {
     },
     disabled:{
       control: {type: "boolean"}
+    },
+    children:{
+      control: {type: "text"}
     }
   },
   tags: ["autodocs"],
@@ -29,14 +32,15 @@ type Story = StoryObj<typeof meta>;
 
 export const Size: Story = {
   args:{
-    onSubmit: action("on-submit")
+    onSubmit: action("on-submit"),
+    children: "Input"
   },
   render: (args) => {
     return(
       <div style={{display: "flex", flexDirection: "column" ,gap: "50px"}}>
-        <InputBox disabled={false} onSubmit={args.onSubmit} size="sm"></InputBox>
-        <InputBox disabled={false} onSubmit={args.onSubmit} size="md"></InputBox>
-        <InputBox disabled={false} onSubmit={args.onSubmit} size="lg"></InputBox>
+        <InputBox children={args.children} disabled={false} onSubmit={args.onSubmit} size="sm"></InputBox>
+        <InputBox children={args.children} disabled={false} onSubmit={args.onSubmit} size="md"></InputBox>
+        <InputBox children={args.children} disabled={false} onSubmit={args.onSubmit} size="lg"></InputBox>
       </div>
     )
   }
@@ -44,11 +48,12 @@ export const Size: Story = {
 
 export const Disabled: Story = {
   args:{
-    disabled: true
+    disabled: true,
+    children: "Input"
   },
   render: (args) => {
     return(
-        <InputBox disabled={args.disabled} onSubmit={action("on-submit")} size="md"></InputBox>
+        <InputBox children={args.children} disabled={args.disabled} onSubmit={action("on-submit")} size="md"></InputBox>
     )
   }
 };

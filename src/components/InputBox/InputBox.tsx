@@ -1,10 +1,11 @@
-import React from "react"
+import React, {useId} from "react"
 import * as SC from "./InputBox.styles"
-import { InputBoxProps } from "./InputBox.types"
+import { WholeBox } from "./InputBox.types"
 
-const InputBox: React.FC<InputBoxProps> = ({
+const InputBox: React.FC<WholeBox> = ({
     size,
     disabled,
+    children,
     ...res
 }) => {
 
@@ -19,7 +20,7 @@ const InputBox: React.FC<InputBoxProps> = ({
                     disabled={disabled}
                     {...res}
                 ></SC.InputBox>
-                <SC.Label htmlFor={size} size={size}>Input</SC.Label>
+                <SC.Label htmlFor={size} size={size}>{children}</SC.Label>
             </SC.InputRow>
         </form>
     )
