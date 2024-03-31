@@ -6,6 +6,6 @@ export const sizes = {
     xl: '22px'
 };
 
-export interface sizeProps{
+export interface SizeProps{
     size: keyof typeof sizes
 }

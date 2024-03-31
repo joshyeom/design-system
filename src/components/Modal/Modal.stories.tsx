@@ -49,24 +49,28 @@ const meta: Meta<typeof Modal> = {
         description: "`primaryColor`는 버튼의 색상을 설정합니다.",
         options:  Object.keys(colors),
         mapping: primaryColorOptions,
+        defaultValue: "blue",
         control: {type: "select"}
       },
       hoverColor:{
         description: "`hoverColor`는 버튼의 호버 색상을 설정합니다.",
         options: Object.keys(colors),
         mapping: hoverColorOptions,
+        defaultValue: "blue",
         control: {type: "select"}
       },
       size: {
         description: "`size`는 글자 크기를 설정합니다.",
         options: Object.keys(sizes),
         mapping: sizeOptions,
+        defaultValue: "md",
         control: { type: "select" }
       },
       space: {
         description: "`space`는 padding을 설정합니다.",
         options: Object.keys(space),
         mapping: spaceOptions,
+        defaultValue: "md",
         control: { type: "select" }
       },
       subTitle:{
