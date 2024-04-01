@@ -3,7 +3,7 @@ import * as CS from "./ComboBox.styles"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faArrowDown } from "@fortawesome/free-solid-svg-icons"
 import { useToggle } from "./useToggle"
-import {  ColorShade } from "../../tokens/colors"
+import { ColorShade } from "../../tokens/colors"
 
 interface ItemProps{
     name: string
@@ -47,12 +47,13 @@ const ComboBox = ({placeholder, items, color}: ComboBoxProps) => {
     };
 
     const clickHandler = (e: React.MouseEvent<HTMLElement>) => {
-        if(inputRef.current && toggle){
-            inputRef.current.focus()
-        }else if(!toggle){
-            toggleState()
+        e.stopPropagation()
+        if(!inputRef.current){
+            return
         }
+        toggleState()
     }
+
 
 
     return (
